@@ -4,7 +4,7 @@ echo             P R O T O N
 echo -----------------------------------
 echo by Krzysztof Palaiologos Szewczyk
 echo Copyright (C) 2019, licensed under
-echo terms of MIT license.
+echo terms of GPLv3 license.
 echo.
 
 mkdir tmp 2> nul
