@@ -1,4 +1,4 @@
-
+@echo off
 echo -----------------------------------
 echo             P R O T O N            
 echo -----------------------------------
@@ -7,8 +7,8 @@ echo Copyright (C) 2019, licensed under
 echo terms of GPLv3 license.
 echo.
 
-mkdir dist
-mkdir tmp
+mkdir dist 2> nul
+mkdir tmp 2> nul
 
 if "%1"=="" (
     goto end
