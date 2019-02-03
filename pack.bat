@@ -27,9 +27,12 @@ copy /b data\x86-mod.sfx + data\header.txt + tmp\arc.7z tmp\app.exe
 
 if not "%2"=="" (
     tools\rh -open tmp\app.exe -save tmp\new.exe -action addoverwrite -res %2 -mask ICONGROUP,MAINICON,
+    del tmp\app.exe 2> nul
+    copy tmp\new.exe tmp\app.exe 2> nul
+    del tmp\new.exe 2> nul
 )
 
-copy tmp\new.exe app.exe
+copy tmp\app.exe app.exe
 
 cd tmp
 del app.exe 2> nul
