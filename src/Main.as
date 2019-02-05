@@ -16,6 +16,12 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
+/*
+ * A little bit pumped up version of classic "Hello World" application.
+ * It's displaying colorful Hello World text on the middle of stage, and
+ * blinking bar of pipes in random colors, changing every 10ms.
+ */
+
 package {
 	import flash.display.MovieClip;
 	import flash.text.TextFormat;
@@ -23,17 +29,24 @@ package {
 	import flash.events.TimerEvent;
 
 	public class Main {
+		/* Private variables: parent MovieClip and tiemr updating pipes. */
 		private var parent:MovieClip;
 		private var updateTimer:Timer;
 		
+		/* Bar out of pipes to be displayed. */
+		
 		private const BAR:String = "||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||";
+		
+		/* Rainbow-generation algo */
 		
 		private function sin_to_hex(i:int, phase:int, size:int):String {
 			var hex:String = (Math.floor(Math.sin(Math.PI / size * 2 * i + phase) * 127) + 128).toString(16);
 			
 			return hex.length == 1 ? "0" + hex : hex;
 		}
-		
+
+		/* This function is colouring up the "Hello, World" string. */
+
 		private function colorful(s:String):String {
 			var size:int = s.length;
 			var rainbow:Array = new Array(size);
@@ -53,6 +66,8 @@ package {
 			
 			return ret;
 		}
+		
+		/* This function is colouring up the bar in random colors. */
 		
 		private function colorfulRandom(s:String):String {
 			var size:int = s.length;
@@ -79,9 +94,14 @@ package {
 			return ret;
 		}
 		
+		/* Timer tick event, changing pipes color. Note htmlText usage! */
+		
 		private function onTimer(e:TimerEvent):void {
 			parent.RainbowTxt.htmlText = colorfulRandom(BAR);
 		}
+		
+		/* Constructor code, taking instance as parent MovieClip, and setting up bar,
+		   message and update timer. */
 		
 		public function Main(instance:MovieClip) {
 			parent = instance;
