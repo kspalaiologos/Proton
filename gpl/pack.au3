@@ -70,6 +70,8 @@ func Cleanup()
     endif
 endfunc
 
+FileChangeDir(@ScriptDir)
+
 SafeDirCreate("dist")
 SafeDirCreate("tmp")
 
@@ -78,11 +80,11 @@ if $CmdLine[0] < 1 then
     exit
 endif
 
-SafeExists($CmdLine[1])
+SafeExists("src\" & $CmdLine[1])
 
 ConsoleWrite("> Copying files ..." & @CRLF);
 
-SafeCopy($CmdLine[1], "tmp\app.swf")
+SafeCopy("src\" & $CmdLine[1], "tmp\app.swf")
 SafeCopy("data\projector.exe", "tmp\projector.exe")
 SafeCopy("data\title.exe", "tmp\title.exe")
 SafeCopy("config.ini", "tmp\config.ini")
