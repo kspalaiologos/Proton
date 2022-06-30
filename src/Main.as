@@ -1,7 +1,7 @@
 
 /*
- * This file is part of the Proton distribution (https://github.com/KrzysztofSzewczyk/Proton).
- * Copyright (c) 2019 Krzysztof Palaiologos Szewczyk.
+ * This file is part of the Proton distribution (https://github.com/kspalaiologos/Proton).
+ * Copyright (c) 2019 Kamila Szewczyk.
  * 
  * This program is free software: you can redistribute it and/or modify  
  * it under the terms of the GNU General Public License as published by  
@@ -17,7 +17,7 @@
  */
 
 /*
- * A little bit pumped up version of classic "Hello World" application.
+ * A fancy version of classic "Hello World" application.
  * It's displaying colorful Hello World text on the middle of stage, and
  * blinking bar of pipes in random colors, changing every 10ms.
  */
